@@ -20,26 +20,7 @@
 	export	default {
 		data() {
 			return {
-				users: [
-					{
-						name: 'Joe',
-						email: 'Joe@gmail.com',
-						telefono: '414-555-7777',
-						contacted: false
-					},
-					{
-						name: 'Deeply',
-						email: 'Deeply@gmail.com',
-						telefono: '414-555-7777',
-						contacted: false
-					},
-					{
-						name: 'Bloody',
-						email: 'Bloody@gmail.com',
-						telefono: '414-555-7777',
-						contacted: true
-					},
-				],
+				users: [],
 				newUser: {}
 			}
 		},
@@ -52,6 +33,10 @@
 				this.users.splice(this.users.indexOf(user), 1);
 			}
 
+		},
+		created() {
+			this.$http.get('https://jsonplaceholder.typicode.com/users')
+				.then(res => this.users = res.body);
 		}
 
 	}

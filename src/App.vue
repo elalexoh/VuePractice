@@ -1,8 +1,22 @@
 <template>
   <div id="app">
     <h1>~ Bienvenido ~</h1>
-    <!--<Test msg="Hola! child"/>-->
-    <User/>
+    <nav>
+      <ul>
+        <li>
+          <router-link to="/test">
+            Test
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/user">
+            User
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+    <hr>
+    <router-view></router-view>
   </div>
 </template>
 
